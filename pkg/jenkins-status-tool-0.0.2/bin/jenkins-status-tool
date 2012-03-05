@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+$:.unshift File.join(File.dirname(__FILE__), '..','lib')
+
+# loading app
+require 'jenkins-status-tool'
+
+# starting sinatra app
+JenkinsStatusTool::Runner.new(ARGV).run!
+
+# w/o any stupid exit handlers
+Process.exit!
