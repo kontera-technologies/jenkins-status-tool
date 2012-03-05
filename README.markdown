@@ -3,7 +3,8 @@ Small tool to get the build status from Jenkins.
 
 ## Installation 
 currently available only via source
-```
+
+```bash
 [root@far-far-away] git clone git@github.com:kontera-technologies/jenkins-status-tool.git
 [root@far-far-away] bundle install
 [root@far-far-away] bundle exec rake install
@@ -58,5 +59,5 @@ lets say that our Jenkins server running on server called ```jenkins-server``` a
 
 
 ## Credits
-* CI Build images by [travis-ci](https://github.com/travis-ci/travis-ci)
+* Build status images by [travis-ci](https://github.com/travis-ci/travis-ci)
 
