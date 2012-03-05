@@ -30,14 +30,16 @@ https://github.com/kontera-technologies/jenkins-status-tool
 ```
 
 ## API
-* get "/"
-list available commands
+* get "/" => list available commands
+
 ![DASH](https://github.com/kontera-technologies/jenkins-status-tool/raw/master/readme-files/dash.png)
 
-* get "/project/:project-name/status.png"
-return project status as image (images taken from [travis-ci](https://github.com/travis-ci/travis-ci))
+* get "/project/:project-name/status.png" => return project status as image (images taken from [travis-ci](https://github.com/travis-ci/travis-ci))
+
 ![fail](https://github.com/kontera-technologies/jenkins-status-tool/raw/master/public/images/fail.png)
+
 ![pass](https://github.com/kontera-technologies/jenkins-status-tool/raw/master/public/images/pass.png)
+
 ![unknown](https://github.com/kontera-technologies/jenkins-status-tool/raw/master/public/images/unknown.png)
 
 * get "/project/:project-name/status.json"
