@@ -12,6 +12,18 @@ Useful for embedding Jenkins CI status images on your Github project.
 		<th>Examples</th>
 	</thead>
 	<tbody>
+		<tr>
+			<td align=center><b>GET</b></td>
+			<td>/project/:project_id/status.json</td>
+			<td>Get project status json string</td>
+			<td>
+				{"status":"pass"}<br/>
+				{"status":"fail"}<br/>
+				{"status":"unknown"}
+			</td>
+			
+		</tr>
+
 			<tr>
 				<td align=center><b>GET</b></td>
 				<td>/project/:project_id/status.png</td>
@@ -21,17 +33,6 @@ Useful for embedding Jenkins CI status images on your Github project.
 					<img src="https://github.com/kontera-technologies/jenkins-status-tool/raw/master/public/images/fail.png"><br/>
 					<img src="https://github.com/kontera-technologies/jenkins-status-tool/raw/master/public/images/unknown.png">					
 				</td>
-			</tr>
-			<tr>
-				<td align=center><b>GET</b></td>
-				<td>/project/:project_id/status.json</td>
-				<td>Get project status json string</td>
-				<td>
-					{"status":"pass"}<br/>
-					{"status":"fail"}<br/>
-					{"status":"unknown"}
-				</td>
-				
 			</tr>
 			
 			<tr>
