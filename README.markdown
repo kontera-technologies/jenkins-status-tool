@@ -1,4 +1,4 @@
-## Jenkins Status Tool
+## The Jenkins Status Tool
 Small tool to get the build status from Jenkins.
 Useful for embedding Jenkins CI status images on your Github project.
 
@@ -79,6 +79,7 @@ lets say that our Jenkins server running on server called ```jenkins-server``` a
 ``` 
 
 Then on my project README I could add something like to show the build status
+
 ```bash
 [![Build Status](https://jenkins-server/project/config-server/status.png)](http://jenkins-server/job/config-server/)
 ```
