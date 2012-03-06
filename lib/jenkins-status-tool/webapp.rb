@@ -22,8 +22,11 @@ module JenkinsStatusTool
     end
     
     get "/project/:project/rcov.?:format?" do
-      content_type 'image/jpeg'
-      project.rcov format or redirect "/images/rcov-no-data.png"
+      case format
+      when :png then
+        content_type 'image/jpeg'
+        project.rcov_image or redirect "/images/rcov-no-data.png"
+      end
     end
     
     protected

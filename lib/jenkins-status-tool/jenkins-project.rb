@@ -22,13 +22,8 @@ module JenkinsStatusTool
       data["color"].to_sym
     end
     
-    def rcov format=:png
-      case format
-      when :png then
-        jenkins.project_rcov_graph project
-      else
-        raise ArgumentError.new "#{format.inspect} isn't supported yet"
-      end
+    def rcov_image
+      jenkins.project_rcov_graph project
     end
     
     private

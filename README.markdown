@@ -33,6 +33,17 @@ Useful for embedding Jenkins CI status images on your Github project.
 				</td>
 				
 			</tr>
+			
+			<tr>
+				<td align=center><b>GET</b></td>
+				<td>/project/:project_id/rcov.png</td>
+				<td>Get project rcov graph image</td>
+				<td>
+					<img src="https://github.com/kontera-technologies/jenkins-status-tool/raw/master/public/readme-files/rcov.png"><br/>
+				</td>
+				
+			</tr>
+			
 
 		</tbody>
 </table>
