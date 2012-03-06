@@ -1,5 +1,42 @@
-## Jenkins Status Tools
+## Jenkins Status Tool
 Small tool to get the build status from Jenkins.
+Useful for embedding Jenkins CI status images on your Github project.
+
+
+## API
+<table border=1>
+	<thead align=left>
+		<th>Method</th>
+		<th>Action</th>
+		<th>Info</th>
+		<th>Examples</th>
+	</thead>
+	<tbody>
+			<tr>
+				<td align=center><b>GET</b></td>
+				<td>/project/:project_id/status.png</td>
+				<td>Get project status image</td>
+				<td>
+					<img src="https://github.com/kontera-technologies/jenkins-status-tool/raw/master/public/images/pass.png"><br/>
+					<img src="https://github.com/kontera-technologies/jenkins-status-tool/raw/master/public/images/fail.png"><br/>
+					<img src="https://github.com/kontera-technologies/jenkins-status-tool/raw/master/public/images/unknown.png">					
+				</td>
+			</tr>
+			<tr>
+				<td align=center><b>GET</b></td>
+				<td>/project/:project_id/status.json</td>
+				<td>Get project status json string</td>
+				<td>
+					{"status":"pass"}<br/>
+					{"status":"fail"}<br/>
+					{"status":"unknown"}
+				</td>
+				
+			</tr>
+
+		</tbody>
+</table>
+
 
 ## Installation 
 currently available only via source
@@ -30,22 +67,6 @@ https://github.com/kontera-technologies/jenkins-status-tool
 
 ```
 
-## API
-* get "/" => list available commands
-
-![DASH](https://github.com/kontera-technologies/jenkins-status-tool/raw/master/readme-files/dash.png)
-
-* get "/project/:project-name/status.png" => return project status as image (images taken from [travis-ci](https://github.com/travis-ci/travis-ci))
-
-![fail](https://github.com/kontera-technologies/jenkins-status-tool/raw/master/public/images/fail.png)
-
-![pass](https://github.com/kontera-technologies/jenkins-status-tool/raw/master/public/images/pass.png)
-
-![unknown](https://github.com/kontera-technologies/jenkins-status-tool/raw/master/public/images/unknown.png)
-
-* get "/project/:project-name/status.json"
-returns project status as json, e.g {"status":"pass"}
-
 ## Example
 lets say that our Jenkins server running on server called ```jenkins-server``` and it's listening on port 1234.
 
@@ -57,6 +78,13 @@ lets say that our Jenkins server running on server called ```jenkins-server``` a
 [...SHOULD DOWNLOAD ONE OF THE IMAGES ABOVE...]
 ``` 
 
+Then on my project README I could add something like to show the build status
+```bash
+[![Build Status](https://jenkins-server/project/config-server/status.png)](http://jenkins-server/job/config-server/)
+```
+
+> Please note that in the example above we used stunnel to route inbound jenkins-server:443 => jenkins-server:5555
+> This will allow us to access the service via https, which is required when embedding images on Github's README page.
 
 ## Credits
 * Build status images by [travis-ci](https://github.com/travis-ci/travis-ci)
