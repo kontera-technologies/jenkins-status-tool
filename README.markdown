@@ -81,7 +81,7 @@ lets say that our Jenkins server running on server called ```jenkins-server``` a
 Then on my project README I could add something like to show the build status
 
 ```bash
-[![Build Status](https://jenkins-server/project/config-server/status.png)](http://jenkins-server/job/config-server/)
+![Build Status](https://jenkins-server/project/config-server/status.png)
 ```
 
 > Please note that in the example above we used stunnel to route inbound jenkins-server:443 => jenkins-server:5555
