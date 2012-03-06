@@ -10,6 +10,7 @@ module JenkinsStatusTool
       self.port    = 7676
       self.jenkins = "localhost:8080"
       self.pid     = '/var/run/jenkins-status-tool.pid'
+      self.root    = File.expand_path File.join(JenkinsStatusTool::ROOT, "..")
     end
         
   end

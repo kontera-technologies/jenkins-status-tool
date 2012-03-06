@@ -4,32 +4,20 @@ require 'singleton'
 require 'json'
 
 module JenkinsStatusTool
-  class JenkinsBroker < JenkinsStatusTool::Utils::Singleton
+  class JenkinsBroker
+    include Singleton
     
-    def status(hash)
-      case project_info(hash[:project])["color"]
-      when "blue" then
-        :pass
-      when "gray" then
-        :inactive
-      when "red" then
-        :fail
-      else
-        :unknown
-      end
+    def project_info project
+      json["jobs"].select {|o| o["name"] == project}.first rescue Hash.new
+    end
+    
+    def project_rcov_graph project
+      open("http://#{Config.instance.jenkins}/job/#{project}/rcov/graph").read rescue nil
     end
     
     private
-    def project_info(project)
-      api["jobs"].select {|o| o["name"] == project}.first rescue Hash.new
-    end
-    
-    def api
-      JSON.parse open("http://#{config.jenkins}/api/json").read
-    end
-    
-    def config
-      Config.instance
+    def json
+      JSON.parse open("http://#{Config.instance.jenkins}/api/json").read
     end
     
   end
