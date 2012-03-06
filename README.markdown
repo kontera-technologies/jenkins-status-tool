@@ -72,16 +72,16 @@ lets say that our Jenkins server running on server called ```jenkins-server``` a
 
 ```
 [root@far-far-away] jenkins-status-tool --jenkins jenkins-server:1234 --port 5555 --daemonize
-[root@far-far-away] curl http://localhost:5555/project/config-server/status.json
+[root@far-far-away] curl http://localhost:5555/project/my-project/status.json
 {"status":"pass"}
-[root@far-far-away] wget http://localhost:5555/project/config-server/status.png
+[root@far-far-away] wget http://localhost:5555/project/my-project/status.png
 [...SHOULD DOWNLOAD ONE OF THE IMAGES ABOVE...]
 ``` 
 
 Then on my project README I could add something like to show the build status
 
 ```bash
-![Build Status](https://jenkins-server/project/config-server/status.png)
+![Build Status](https://jenkins-server/project/my-project/status.png)
 ```
 
 > Please note that in the example above we used stunnel to route inbound jenkins-server:443 => jenkins-server:5555
