@@ -48,6 +48,10 @@ module JenkinsStatusTool
           config.pid = file
         end
         
+        opts.on('-s', '--https', 'add this switch if you are running behind https forwarder (e.g stunnel)') do
+          config.https = true
+        end
+        
         opts.separator ""
         opts.separator "More Info:"
         opts.separator "https://github.com/kontera-technologies/jenkins-status-tool"

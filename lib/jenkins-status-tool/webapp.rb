@@ -4,6 +4,7 @@ module JenkinsStatusTool
   class WebApp < Sinatra::Base
         
     def self.config; Config.instance end
+    def config; self.class.config end
     
     set :root, config.root
     set :port, config.port
@@ -30,6 +31,13 @@ module JenkinsStatusTool
     end
     
     protected
+    def redirect path
+      super "https://#{request.host}#{path}" if config.https? and relative? path
+    end
+    
+    def relative? path
+      path !~ /http(s*)?:\/\//
+    end
     
     def format
       symbolize_params.fetch(:format).to_sym
