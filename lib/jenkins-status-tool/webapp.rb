@@ -32,7 +32,11 @@ module JenkinsStatusTool
     
     protected
     def redirect path
-      super "https://#{request.host}#{path}" if config.https? and relative? path
+      if config.https? and relative? path
+        super "https://#{request.host}#{path}" 
+      else
+        super path
+      end
     end
     
     def relative? path

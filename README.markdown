@@ -101,5 +101,4 @@ Then on my project README I could add something like to show the build status
 > This will allow us to access the service via https, which is required when embedding images on Github's README page.
 
 ## Credits
-* Build status images by [travis-ci](https://github.com/travis-ci/travis-ci)
-
+* Status images by [travis-ci](https://github.com/travis-ci/travis-ci)
