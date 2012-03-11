@@ -73,7 +73,7 @@ Options:
     -p, --port URL                   listening port, default is 7676
     -d, --daemonize                  run in background
     -P, --pid-file FILE              pid file, default /var/run/jenkins-status-tool.pid
-    -s, --https                      add this switch if you are running behind https forwarder (e.g stunnel)
+    -s, --https                      use this if running behind https forwarder (e.g stunnel)
 
 More Info:
 https://github.com/kontera-technologies/jenkins-status-tool
