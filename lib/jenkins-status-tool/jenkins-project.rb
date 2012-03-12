@@ -11,15 +11,15 @@ module JenkinsStatusTool
     
     def status
       case color
-      when :red     then :fail
-      when :blue    then :pass
-      when :gray    then :inactive
+      when /red/     then :fail
+      when /blue/    then :pass
+      when /gray/    then :inactive
       else :unknown
       end
     end
 
     def color
-      data["color"].to_sym
+      data["color"]
     end
     
     def rcov_image
