@@ -81,7 +81,7 @@ https://github.com/kontera-technologies/jenkins-status-tool
 ```
 
 ## Example
-lets say that our Jenkins server running on server called ```jenkins-server``` and it's listening on port 1234.
+lets say that our Jenkins server is running on ```jenkins-server:1234```
 
 ```
 [root@far-far-away] jenkins-status-tool --jenkins jenkins-server:1234 --port 5555 --daemonize
@@ -91,14 +91,31 @@ lets say that our Jenkins server running on server called ```jenkins-server``` a
 [...SHOULD DOWNLOAD ONE OF THE IMAGES ABOVE...]
 ``` 
 
-Then on my project README I could add something like to show the build status
+## Embed it
+you can easily embed the current status of your builds in any html type document.
+
+TextLite
 
 ```bash
-![Build Status](https://jenkins-server/project/my-project/status.png)
+"!https://jenkins-status-tool-url/projects/PROJECT-NAME/status.png!":http://jenkins.example.com/jobs/PROJET-NAME
 ```
 
-> Please note that in the example above we used stunnel to route inbound jenkins-server:443 => jenkins-server:5555
-> This will allow us to access the service via https, which is required when embedding images on Github's README page.
+RDoc
+
+```bash
+{<img src="https://jenkins-status-tool-url/projects/PROJECT-NAME/status.png" />}[http://jenkins.example.com/jobs/PROJET-NAME]
+```
+
+MarkDown
+
+```bash
+[![Build Status](https://jenkins-status-tool-url/projects/PROJECT-NAME/status.png)](http://jenkins.example.com/jobs/PROJET-NAME)
+```
+
+>
+> **The tunnel...** 
+> We used STunnel to route jenkins-status-tool-url:443 <=> jenkins-status-tool-url:5555
+> This allow us to fetch the status images using https.
 
 ## Credits
 * Status images by [travis-ci](https://github.com/travis-ci/travis-ci)

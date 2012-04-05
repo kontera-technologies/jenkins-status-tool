@@ -1,23 +1,46 @@
 <h2> Jenkins Status Tool API</h2></br>
 
 <table border=1>
-	<thead>
-       <th>Info</th>
-       <th>Type</th>
-       <th>Action</th>
+	<thead align=left>
+		<th>Method</th>
+		<th>Action</th>
+		<th>Info</th>
+		<th>Examples</th>
 	</thead>
-	
 	<tbody>
 		<tr>
-			<td>Get project status image</td>
-			<td>GET</td>
-			<td>/project/:project_id/status.png</td>
-		</tr>
-		<tr>
-			<td>Get project status json string</td>
-			<td>GET</td>
+			<td align=center><b>GET</b></td>
 			<td>/project/:project_id/status.json</td>
+			<td>Get project status json string</td>
+			<td>
+				{"status":"pass"}<br/>
+				{"status":"fail"}<br/>
+				{"status":"unknown"}
+			</td>
+			
 		</tr>
-		
-	</tbody>
+
+			<tr>
+				<td align=center><b>GET</b></td>
+				<td>/project/:project_id/status.png</td>
+				<td>Get project status image</td>
+				<td>
+					<img src="/images/pass.png"><br/>
+					<img src="/images/fail.png"><br/>
+					<img src="/images/unknown.png">
+				</td>
+			</tr>
+			
+			<tr>
+				<td align=center><b>GET</b></td>
+				<td>/project/:project_id/rcov.png</td>
+				<td>Get project rcov graph image</td>
+				<td>
+					<img src="/images/rcov-example.png"><br/>
+				</td>
+				
+			</tr>
+			
+
+		</tbody>
 </table>
