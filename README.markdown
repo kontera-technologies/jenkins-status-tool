@@ -101,26 +101,27 @@ lets say that our Jenkins server is running on ```jenkins-server:1234```
 ## Embed it
 you can easily embed the current status of your builds in any html type document.
 
+**HTML**
 ```
-<img src="https://jenkins-status-tool-url/projects/PROJECT-NAME/status.png"/>
+<img src="https://jenkins-status-tool-url/project/PROJECT-NAME/status.png"/>
 ```
 
-TextLite
+**TextLite**
 
 ```bash
-"!https://jenkins-status-tool-url/projects/PROJECT-NAME/status.png!":http://jenkins.example.com/jobs/PROJET-NAME
+"!https://jenkins-status-tool-url/project/PROJECT-NAME/status.png!":http://jenkins.example.com/jobs/PROJET-NAME
 ```
 
-RDoc
+**RDoc**
 
 ```bash
-{<img src="https://jenkins-status-tool-url/projects/PROJECT-NAME/status.png" />}[http://jenkins.example.com/jobs/PROJET-NAME]
+{<img src="https://jenkins-status-tool-url/project/PROJECT-NAME/status.png" />}[http://jenkins.example.com/jobs/PROJET-NAME]
 ```
 
-MarkDown
+**MarkDown**
 
 ```bash
-[![Build Status](https://jenkins-status-tool-url/projects/PROJECT-NAME/status.png)](http://jenkins.example.com/jobs/PROJET-NAME)
+[![Build Status](https://jenkins-status-tool-url/project/PROJECT-NAME/status.png)](http://jenkins.example.com/jobs/PROJET-NAME)
 ```
 
 >
