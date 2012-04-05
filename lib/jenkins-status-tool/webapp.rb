@@ -54,7 +54,7 @@ module JenkinsStatusTool
     end
         
     def config 
-      self.class.config
+      Config::instance
     end
     
   end

@@ -51,19 +51,26 @@ Useful for embedding Jenkins CI status images on your Github project.
 
 
 ## Installation 
-currently available only via source
+
+**RubyGems.org**
 
 ```bash
-[root@far-far-away] git clone git@github.com:kontera-technologies/jenkins-status-tool.git
-[root@far-far-away] bundle install
-[root@far-far-away] bundle exec rake install
+gem install jenkins-status-tool
+```
+
+**Source**
+
+```bash
+[root@far-away] git clone git@github.com:kontera-technologies/jenkins-status-tool.git
+[root@far-away] bundle install
+[root@far-away] bundle exec rake install
 ```
 
 ## Usage
 after installing the gem, the `jenkins-status-tool` command should be available
 
 ```bash
-[root@far-far-away] jenkins-status-tool --help
+[root@far-away] jenkins-status-tool --help
 
 The Jenkins Status Tool
 Usage: jenkins-status-tool [options]
@@ -84,8 +91,8 @@ https://github.com/kontera-technologies/jenkins-status-tool
 lets say that our Jenkins server is running on ```jenkins-server:1234```
 
 ```
-[root@far-far-away] jenkins-status-tool --jenkins jenkins-server:1234 --port 5555 --daemonize
-[root@far-far-away] curl http://localhost:5555/project/my-project/status.json
+[root@far-away] jenkins-status-tool --jenkins jenkins-server:1234 --port 5555 --daemonize
+[root@far-away] curl http://localhost:5555/project/my-project/status.json
 {"status":"pass"}
 [root@far-far-away] wget http://localhost:5555/project/my-project/status.png
 [...SHOULD DOWNLOAD ONE OF THE IMAGES ABOVE...]
@@ -93,6 +100,10 @@ lets say that our Jenkins server is running on ```jenkins-server:1234```
 
 ## Embed it
 you can easily embed the current status of your builds in any html type document.
+
+```
+<img src="https://jenkins-status-tool-url/projects/PROJECT-NAME/status.png"/>
+```
 
 TextLite
 

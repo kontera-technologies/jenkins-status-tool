@@ -23,10 +23,13 @@ module JenkinsStatusTool
     end
     
     def rcov_image
-      jenkins.project_rcov_graph project
+      jenkins.raw rcov_path
     end
     
     private
+    def rcov_path
+      [job,project,rcov,graph].join "/"
+    end
     
     def data
       jenkins.project_info project

@@ -11,10 +11,10 @@ module JenkinsStatusTool
       json["jobs"].select {|o| o["name"] == project}.first rescue Hash.new
     end
     
-    def project_rcov_graph project
-      open("http://#{Config.instance.jenkins}/job/#{project}/rcov/graph").read rescue nil
+    def raw relative_path
+      open("http://#{Config.instance.jenkins}/#{relative_path}").read rescue nil
     end
-    
+        
     private
     def json
       JSON.parse open("http://#{Config.instance.jenkins}/api/json").read
