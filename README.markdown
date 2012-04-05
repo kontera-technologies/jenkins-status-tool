@@ -102,6 +102,7 @@ lets say that our Jenkins server is running on ```jenkins-server:1234```
 you can easily embed the current status of your builds in any html type document.
 
 **HTML**
+
 ```
 <img src="https://jenkins-status-tool-url/project/PROJECT-NAME/status.png"/>
 ```
