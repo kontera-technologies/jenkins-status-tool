@@ -1,24 +1,35 @@
 require 'rubygems'
 require 'open-uri'
-require 'singleton'
 require 'json'
 
 module JenkinsStatusTool
   class JenkinsBroker
-    include Singleton
     
     def project_info project
-      json["jobs"].select {|o| o["name"] == project}.first rescue Hash.new
+      find_job project or Hash.new
     end
     
     def raw relative_path
-      open("http://#{Config.instance.jenkins}/#{relative_path}").read rescue nil
+      open("http://#{jenkins}/#{relative_path}").read rescue nil
     end
-        
+
     private
-    def json
-      JSON.parse open("http://#{Config.instance.jenkins}/api/json").read
-    end
     
+    def jobs
+      json["jobs"] || Array.new { Hash.new }
+    end
+
+    def find_job job
+      jobs.select {|o| o["name"] == job}.first
+    end
+
+    def jenkins
+      Config.instance.jenkins
+    end
+
+    def json
+      JSON.parse open("http://#{jenkins}/api/json").read
+    end
+
   end
 end

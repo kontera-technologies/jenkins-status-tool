@@ -1,25 +1,29 @@
-require 'ostruct'
-
 module JenkinsStatusTool
-  class JenkinsProject < OpenStruct
+  class JenkinsProject
+
+    attr_reader :project, :jenkins
 
     def initialize hash
-      super
-      self.project = hash.fetch :project
-      self.jenkins = JenkinsBroker::instance
+      @project = hash.fetch :project
+      @jenkins = JenkinsBroker.new
     end
     
     def status
       case color
-      when /red/     then :fail
-      when /blue/    then :pass
-      when /gray/    then :inactive
+      when :red  then :fail
+      when :blue then :pass
+      when :gray then :inactive
       else :unknown
       end
     end
 
     def color
-      data["color"]
+      case data["color"]
+      when /red/  then :red
+      when /blue/ then :blue
+      when /gray/ then :gray
+      else nil
+      end
     end
     
     def rcov_image
@@ -28,7 +32,7 @@ module JenkinsStatusTool
     
     private
     def rcov_path
-      [job,project,rcov,graph].join "/"
+      ["job",project,"rcov","graph"].join "/"
     end
     
     def data

@@ -33,23 +33,23 @@ module JenkinsStatusTool
         opts.separator "Options:"
         
         opts.on('-j', '--jenkins URL', 'Jenkins url, e.g http://jenkins:8080, default is localhost') do |url|
-          config.jenkins = url
+          config[:jenkins] = url
         end
         
         opts.on('-p', '--port URL', 'listening port, default is 7676') do |port|
-          config.port = port
+          config[:port] = port
         end
         
         opts.on("-d", "--daemonize","run in background") do
-          config.daemonize = true
+          config[:daemonize] = true
         end
         
         opts.on("-P", "--pid-file FILE","pid file, default /var/run/jenkins-status-tool.pid") do |file|
-          config.pid = file
+          config[:pid] = file
         end
         
         opts.on('-s', '--https', 'add this switch if you are running behind https forwarder (e.g stunnel)') do
-          config.https = true
+          config[:https] = true
         end
         
         opts.separator ""

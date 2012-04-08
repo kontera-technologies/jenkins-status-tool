@@ -3,8 +3,8 @@ require 'sinatra/base'
 module JenkinsStatusTool
   class WebApp < Sinatra::Base
         
-    set :root, Config::instance.root
-    set :port, Config::instance.port
+    set :root, Config.instance.root
+    set :port, Config.instance.port
     
     get "/" do
       erb :index
@@ -53,8 +53,8 @@ module JenkinsStatusTool
       @project ||= JenkinsProject.new symbolize_params
     end
         
-    def config 
-      Config::instance
+    def config
+      Config.instance
     end
     
   end
