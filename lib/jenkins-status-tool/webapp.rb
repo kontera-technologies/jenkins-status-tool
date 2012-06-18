@@ -23,6 +23,7 @@ module JenkinsStatusTool
       case format
       when :png then
         content_type 'image/jpeg'
+        cache_control 'no-cache'
         project.rcov_image or redirect "/images/rcov-no-data.png"
       end
     end
